@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 250px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid black;
+    width: 50%;
+    height: 40vh;
+}
+
+.buscar {
+    background-color: #cbcbcb;
+    width: 125px;
+    height: 35px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.mas {
+    background-color: #fe6600;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: none;
+    font-size: 25px;
+}
+
+.crear_cuenta {
+    background-color: #0098fe;
+    color: white;
+    width: 125px;
+    height: 35px;
+    border: none;
+    box-shadow: 10px 10px 5px grey;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}

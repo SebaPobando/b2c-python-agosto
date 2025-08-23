@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.quote p {
+    color: red;
+    font-style: italic;
+}
+
+.header>h2 {
+    color: green;
+}
+
+/* Estilo para los párrafos dentro del contenedor*/
+#container p {
+    font-size: 16px;
+    background-color: #333;
+}
+
+/* Estilo para los párrafos dentro del contenedor*/
+
+#container p.highlight {
+    font-weight: bold;
+    color: #ff0000;
+    /* Rojo */
+}
+
+#container p {
+    font-weight: bold;
+    color: #ffffff;
+    /* Blanco */
+}
+
+input[type="text"] {
+    border: none;
+    border-bottom: 3px solid rebeccapurple;
+}
+
+input[type="submit"] {
+    color: rgb(66, 167, 110);
+    background-color: red;
+}
