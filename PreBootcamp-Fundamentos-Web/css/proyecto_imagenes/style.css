@@ -49,6 +49,9 @@ p {
     font-size: 25px;
 }
 
-h1 {
+header {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
     height: 5vh;
 }
