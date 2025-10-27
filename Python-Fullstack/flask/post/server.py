@@ -9,14 +9,13 @@ def index():
    return render_template("index.html")
 
 # /crear_usuario recibe la información
-
 @app.route('/crear_usuario', methods=['POST'])
 def crear_usuario():
    print("Recibiendo información")
    print(request.form)
    session['nombre_usuario'] = request.form['nombre']
    session['email_usuario'] = request.form['email']
-   return redirect('/mostrar_usuario') #Redirigimos a otra ruta
+   return redirect('/mostrar_usuario')
 
 @app.route('/mostrar_usuario')
 def mostrar_usuario():
