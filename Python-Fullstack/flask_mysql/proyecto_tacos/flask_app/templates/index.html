@@ -8,9 +8,27 @@
     <title>Formulario de Taco</title>
 </head>
 <body>
-    <a href="/tacos" class="btn btn-success">Ver todos los tacos</a>
-    <form action="/crear" method="post" class="p-3 col-4 mx-auto my-5b border">
-        <h2 class="text-center text-primary">Crear Taco:</h2>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <a href="/tacos" class="btn btn-success">Ver todos los tacos</a>
+            </div>
+        </div>
+
+        <!-- Formulario para crear restaurante -->
+        <form action="/restaurante/crear" method="post" class="p-3 col-4 mx-auto my-5 border">
+            <h2 class="text-center text-primary">Crear Restaurante:</h2>
+            <div class="form-group">
+                <label for="nombre">Nombre del Restaurante:</label>
+                <input type="text" name="nombre" id="nombre" class="form-control">
+            </div>
+            <input type="submit" value="Crear restaurante" class="btn btn-success btn-outline-dark mt-3">
+        </form>
+
+        <!-- Solo mostrar el formulario de tacos si hay restaurantes -->
+        {% if todos_restaurantes %}
+        <form action="/crear" method="post" class="p-3 col-4 mx-auto my-5 border">
+            <h2 class="text-center text-primary">Crear Taco:</h2>
     
         <div class="form-group">
             <label for="tortilla">Tortilla:</label>
@@ -25,6 +43,39 @@
             <input type="text" name="salsa" id="salsa" class="form-control">
         </div>
         <input type="submit" value="Crear taco" class="btn btn-primary btn-outline-dark mt-3">
+
+         <select name="restaurante_id">
+
+          <!-- Creamos las opciones para que el usuario seleccione un restaurante. -->
+
+           {% for restaurante in todos_restaurantes %}
+
+           <!-- El id del restaurante será el valor de la opción -->
+
+           <option value="{{restaurante.id}}">{{restaurante.nombre}}</option>
+
+           {% endfor %}
+
+       </select>
     </form>
+    {% with messages = get_flashed_messages() %}<!-- declara una variable llamada mensajes -->
+
+           {% if messages %}<!-- revisa si hay algún mensaje -->
+
+                   {% for message in messages %}   <!-- recorre los mensajes -->
+
+                       <p>{{message}}</p>  <!-- muestra cada mensaje en una etiqueta de párrafo -->
+
+                   {% endfor %}
+
+           {% endif %}
+
+       {% endwith %}
+    {% else %}
+    <div class="alert alert-warning text-center col-4 mx-auto">
+        Por favor, crea un restaurante antes de agregar tacos.
+    </div>
+    {% endif %}
+    </div>
 </body>
 </html>

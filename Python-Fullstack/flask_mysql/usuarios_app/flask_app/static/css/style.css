@@ -82,7 +82,7 @@ label {
 }
 
 /* Inputs */
-input[type="text"] {
+input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -91,7 +91,7 @@ input[type="text"] {
     transition: border 0.3s;
 }
 
-input[type="text"]:focus {
+input:focus {
     border: 1px solid #4a90e2;
     box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
 }
@@ -133,7 +133,6 @@ input[type="submit"]:hover {
     margin: 2rem auto;
     border-radius: 14px;
     overflow: hidden;
-    /* para que el header y el body no se salgan */
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(250, 250, 250, 0.99));
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: var(--card-shadow);
@@ -154,10 +153,9 @@ input[type="submit"]:hover {
     align-items: center;
     gap: 14px;
     color: #fff;
-    /* texto blanco dentro del header */
 }
 
-/* Avatar (soporta <img> o <div>) */
+/* Avatar */
 .usuario-card .avatar,
 .usuario-card img.avatar {
     width: 72px;
@@ -176,12 +174,10 @@ input[type="submit"]:hover {
     overflow: hidden;
 }
 
-/* Si pones una imagen <img class="avatar">, que ocupe todo */
 .usuario-card img.avatar {
     object-fit: cover;
 }
 
-/* Info en el header (titulo y subtitulo) */
 .usuario-card .header-info h1 {
     font-size: 1.15rem;
     margin: 0;
@@ -195,14 +191,12 @@ input[type="submit"]:hover {
     margin-top: 4px;
 }
 
-/* Cuerpo de la tarjeta */
 .usuario-card .card-body {
     padding: 18px 22px 22px 22px;
     text-align: left;
     color: #333;
 }
 
-/* Filas de datos (alineadas y con separación) */
 .usuario-card .meta-row {
     display: flex;
     justify-content: space-between;
@@ -216,7 +210,6 @@ input[type="submit"]:hover {
     border-bottom: none;
 }
 
-/* Etiqueta a la izquierda (más tenue) */
 .usuario-card .meta-row span.label {
     color: #666;
     font-weight: 600;
@@ -224,13 +217,11 @@ input[type="submit"]:hover {
     white-space: nowrap;
 }
 
-/* Valor a la derecha */
 .usuario-card .meta-row strong {
     color: #111;
     font-weight: 700;
 }
 
-/* Acciones / botones */
 .usuario-card .card-actions {
     margin-top: 14px;
     display: flex;
@@ -238,7 +229,6 @@ input[type="submit"]:hover {
     gap: 10px;
 }
 
-/* reutiliza .btn-accion pero agrega padding más pequeño visualmente */
 .usuario-card .btn-accion {
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -247,7 +237,6 @@ input[type="submit"]:hover {
     text-decoration: none;
 }
 
-/* Reafirma estilos para editar / borrar */
 .usuario-card .btn-accion.editar {
     background: var(--success);
     color: #fff;
@@ -258,7 +247,6 @@ input[type="submit"]:hover {
     color: #fff;
 }
 
-/* Responsive: reduce avatar y tamaño en pantallas pequeñas */
 @media (max-width: 460px) {
     .usuario-card {
         width: calc(100% - 30px);
@@ -273,5 +261,88 @@ input[type="submit"]:hover {
 
     .usuario-card .header-info h1 {
         font-size: 1rem;
+    }
+}
+
+/* ---------------------------------
+   LOGIN Y REGISTRO (lado a lado)
+   --------------------------------- */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.form-box {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.2s ease;
+}
+
+.form-box:hover {
+    transform: translateY(-5px);
+}
+
+.form-box h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.form-box label {
+    font-weight: 600;
+    color: #444;
+}
+
+.form-box input {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.form-box input:focus {
+    border: 1px solid #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.form-box input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.form-box input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.flash-messages {
+    text-align: center;
+    color: #dc3545;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-box {
+        width: 90%;
     }
 }
